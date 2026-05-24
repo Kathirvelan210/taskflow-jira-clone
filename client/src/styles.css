@@ -1,0 +1,324 @@
+@layer components {
+  /* ─── Sidebar ─── */
+  .tf-sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: linear-gradient(180deg, #141728 0%, #0d1020 100%);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+  }
+
+  /* ─── Topbar ─── */
+  .tf-topbar {
+    height: 56px;
+    min-height: 56px;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--tf-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-shrink: 0;
+    z-index: 30;
+    gap: 12px;
+  }
+
+  /* ─── Sidebar nav links ─── */
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
+    margin: 1px 8px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #7c88a8;
+    transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    width: calc(100% - 16px);
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.055);
+    color: #b0bcd4;
+  }
+
+  .sidebar-link.active {
+    background: rgba(99, 102, 241, 0.16);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: #ffffff;
+  }
+
+  .sidebar-link.danger { color: #f87171; }
+
+  .sidebar-link.danger:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    border-color: transparent;
+  }
+
+  /* ─── Cards ─── */
+  .tf-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--tf-border);
+    border-radius: 12px;
+    box-shadow: var(--tf-shadow-sm);
+    overflow: hidden;
+  }
+
+  /* ─── Inputs ─── */
+  .tf-input {
+    display: block;
+    width: 100%;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--tf-border);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 0.875rem;
+    color: var(--tf-text);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    line-height: 1.4;
+  }
+
+  .tf-input::placeholder { color: var(--tf-text-3); }
+
+  .tf-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
+  }
+
+  .tf-input-err { border-color: #ef4444 !important; }
+  .tf-input-err:focus { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.14) !important; }
+
+  select.tf-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3C0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 32px;
+    cursor: pointer;
+  }
+
+  textarea.tf-input { resize: none; }
+
+  /* ─── Buttons ─── */
+  .tf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.14s ease;
+    outline: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .tf-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .tf-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #5058e5 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
+  }
+
+  .tf-btn-primary:not(:disabled):hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .tf-btn-primary:not(:disabled):active { transform: translateY(0); }
+
+  .tf-btn-ghost {
+    background: var(--bg-elevated);
+    color: var(--tf-text-2);
+    border: 1px solid var(--tf-border);
+  }
+
+  .tf-btn-ghost:not(:disabled):hover {
+    background: var(--tf-border);
+    color: var(--tf-text);
+  }
+
+  .tf-btn-sm { padding: 6px 12px; font-size: 0.8125rem; border-radius: 6px; }
+
+  .tf-btn-danger {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  }
+
+  .tf-btn-danger:not(:disabled):hover {
+    background: #dc2626;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.45);
+    transform: translateY(-1px);
+  }
+
+  /* ─── Kanban columns ─── */
+  .kanban-col {
+    background: var(--bg-surface-alt);
+    border: 1.5px solid var(--tf-border);
+    border-radius: 12px;
+    min-width: 284px;
+    max-width: 284px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.14s ease, box-shadow 0.14s ease;
+  }
+
+  .kanban-col.drag-over {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+  }
+
+  /* ─── Issue cards ─── */
+  .issue-card {
+    background: var(--bg-surface);
+    border: 1.5px solid var(--tf-border);
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.14s ease;
+    box-shadow: var(--tf-shadow-sm);
+    position: relative;
+  }
+
+  .issue-card:hover {
+    border-color: #6366f1;
+    box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18);
+    transform: translateY(-1px);
+  }
+
+  /* ─── Modal ─── */
+  .tf-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 12, 28, 0.65);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 16px;
+    animation: tf-fadein 0.15s ease;
+  }
+
+  .tf-modal {
+    background: var(--bg-surface);
+    border: 1px solid var(--tf-border);
+    border-radius: 16px;
+    box-shadow: var(--tf-shadow-xl);
+    width: 100%;
+    overflow: hidden;
+    animation: tf-slideup 0.2s ease;
+  }
+
+  /* ─── Field label ─── */
+  .tf-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--tf-text-2);
+    margin-bottom: 5px;
+  }
+
+  /* ─── Avatar ─── */
+  .tf-avatar {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    flex-shrink: 0;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ─── Progress bar ─── */
+  .tf-progress {
+    width: 100%;
+    background: var(--bg-elevated);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  /* ─── Section divider label ─── */
+  .tf-section-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--tf-text-3);
+  }
+
+  /* ─── Topbar icon button ─── */
+  .tf-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--tf-text-2);
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+
+  .tf-icon-btn:hover {
+    background: var(--bg-elevated);
+    color: var(--tf-text);
+  }
+
+  /* ─── Animations ─── */
+  @keyframes tf-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes tf-slideup {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes tf-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .tf-spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid var(--tf-border);
+    border-top-color: #6366f1;
+    animation: tf-spin 0.7s linear infinite;
+  }
+}
